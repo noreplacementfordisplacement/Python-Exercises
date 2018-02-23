@@ -4,13 +4,17 @@
 
 # import libraries:
 import numpy as np
-from gr import pygr
+import matplotlib.pyplot as plt
+import pylab
+
+fig = plt.figure()
 
 
 def test1(dvar, dvar2, dlen, davg): #input parameters
 	#generate random signal
+	plt.figure(1)
 
-	noise = np.random.normal(davg,dvar,dlen)
+	noise = np.random.normal(davg,dvar,dlen)	
 	noise2 = np.random.normal(davg,dvar2,dlen)
 	# 0 is the mean of the normal distribution you are choosing from
 	# 1 is the standard deviation of the normal distribution
@@ -20,7 +24,8 @@ def test1(dvar, dvar2, dlen, davg): #input parameters
 	noise = np.append(noise, noise2)
 
 	#use gr to plot function
-	pygr.plot(noise)
+	plt.plot(noise)
+	plt.show()
 
 # init
 dvar = 0.1 #variance 1
