@@ -15,10 +15,11 @@ t_change = 10
 
 #generate random signal
 
-noise = np.random.normal(0,1,100)
+noise = np.random.normal(0,1,1000)
+noise = np.random.normal(0,3,1000)
 
 # 0 is the mean of the normal distribution you are choosing from
 # 1 is the standard deviation of the normal distribution
 # 100 is the number of elements you get in array noise
 
-pygr.plot(list(x**2 for x in range(100)))
+pygr.plot(noise)
