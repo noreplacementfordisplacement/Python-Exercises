@@ -1,25 +1,32 @@
 # file for providing validation test data sources and visualization. Creation date wk 1808.5
+# run with python -i
+
 
 # import libraries:
 import numpy as np
 from gr import pygr
 
 
-#input parameters
-dvar = 10 #variance
-dlen = 10 #length of time-series signal
-damp = 10 #amplitude of time series signal
+def test1(dvar, dvar2, dlen, davg): #input parameters
+	#generate random signal
 
-#change at t = x
-t_change = 10
+	noise = np.random.normal(davg,dvar,dlen)
+	noise2 = np.random.normal(davg,dvar2,dlen)
+	# 0 is the mean of the normal distribution you are choosing from
+	# 1 is the standard deviation of the normal distribution
+	# 100 is the number of elements you get in array noise
 
-#generate random signal
+	#update noise 
+	noise = np.append(noise, noise2)
 
-noise = np.random.normal(0,1,1000)
-noise = np.random.normal(0,3,1000)
+	#use gr to plot function
+	pygr.plot(noise)
 
-# 0 is the mean of the normal distribution you are choosing from
-# 1 is the standard deviation of the normal distribution
-# 100 is the number of elements you get in array noise
+# init
+dvar = 0.1 #variance 1
+dvar2 = 0.2 #variance 2
+dlen = 1000 #length of time-series signal
+davg = 0 #average of timeseries signal
 
-pygr.plot(noise)
+# test1 
+test1(dvar, dvar2, dlen, davg)
